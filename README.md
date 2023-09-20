@@ -1,16 +1,3 @@
-﻿Assignment 1
-
-Basic Image Processing Fall 2021
-
-General rules
-
-This is the first Assignment. There will be three more Assignments during the semester.
-
-Point value: **20 points**, which is 20% of the total assignment points. Deadline: **October 4, 2021 23:59:59** (late submission until Oct. 6)
-
-This is a not-guided exercise. The description of this assignment is general and does not focus on the details as in case of the Lab exercises.
-
-The main task is to provide a good, reasonable solution. You may code “freely” (only minimal restrictions on file names and outputs are given).
 
 Problem formulation
 
@@ -44,28 +31,28 @@ However, please create the following outputs:
 1. **Figure 4** should show a similar image to Fig. 3 but with the coins only, showing their determined value
 1. The answer (total amount) should be displayed on the **console**
 
-6
+
 Figure 7
 
 ![](Aspose.Words.e1974aeb-1851-4b90-8c14-fff76b1aa017.001.jpeg)
 
-7
+
 Figure 3
 
 ![](Aspose.Words.e1974aeb-1851-4b90-8c14-fff76b1aa017.002.png)
 
-8
+
 Figure 4
 
 ![](Aspose.Words.e1974aeb-1851-4b90-8c14-fff76b1aa017.003.png)
 
-9
+
 
 The console output:
 
 ![](Aspose.Words.e1974aeb-1851-4b90-8c14-fff76b1aa017.004.png)
 
-10
+
 
 There is no code package for this assignment.
 
@@ -75,7 +62,7 @@ Download the image to be processed from here:
 
 <https://beta.dev.itk.ppke.hu/bipa/assignment_01> 
 
-11
+
 
 Submission & hints
 
@@ -87,7 +74,7 @@ Please submit ALL files (including the image as well) in a compressed **ZIP** fi
 
 **Check the upcoming slides for hints!**
 
-12
+
 Hint 1
 
 Stretch the histogram of the image to the full dynamic range. Use thresholding on separate color channels and combine the results (with logical operations) to get a decent mask.
@@ -98,7 +85,7 @@ Aim for a mask that is white in the coin regions but has “holes” in the unwa
 
 If the mask is “noisy” (small white dots) it’s not a problem, the convolution will deal with it.
 
-13
+
 Hint 2
 
 The “coin-detection kernel” should be a round kernel with a diameter comparable to the smallest coin. ![](Aspose.Words.e1974aeb-1851-4b90-8c14-fff76b1aa017.005.png)
@@ -109,7 +96,7 @@ Something like this will do:
 
 Use the MATLAB’s built-in kernel generator function to obtain such matrix.
 
-14
+
 Hint 4
 
 Cropping the objects may sound hard but it isn’t.
@@ -122,7 +109,7 @@ Modify the result of the convolution; replace every value inside the window with
 
 Stop the loop when the value of the maximum is not significant anymore.
 
-15
+
 Hint 6
 
 The histogram of the cropped color image can be useful to decide whether it’s a coin or not. Use the total number of pixels in the “interesting” regions; 
@@ -144,38 +131,17 @@ E.g. (not real values, just an example!)
 
 If 152 < d < 160  then   5 Ft If 165 < d < 178 then  10 Ft If  190 < d < 200 then 20 Ft etc....
 
-17
+
 Hint 8
 
 It might also be beneficial to include color info in the look-up-table as well: E.g. (not some real values, just an example!)
 
 If 152 < d < 160  AND  red > 200 then   2 cent If 152 < d < 160  AND  red < 170 then   5 Ft etc...
 
-18
+
 Hint 9
 
 Use the diameter and color of the coin to get its value. Consider the line of pixels along the center of the window (both horizontally and vertically). Try to detect the huge jump in the pixel value; find the location of these points and calculate the distance between them. This is the diameter of the coin. Compare the diameters along the two axes; they should be very close to each other in value. Check the color of the coin within this interval too!
 
 19![](Aspose.Words.e1974aeb-1851-4b90-8c14-fff76b1aa017.007.png)
 
-Grading
-
-The final score of this assignment is the sum of the following points:
-
-The script filename is correct, it’s a script, the image is loaded, no errors 2 points Figure 1 exists, similar to the sample in this document, mask is good 2 points Convolution kernel exists, size and kernel values are OK 1 point Figure 2 exists, similar to the sample in this document, result is good 2 points Object cropping is done in a loop with a window, at least 70% found 3 points Coin or not-coin detection working correctly (>70% classified correctly) 2 points Figure 3 exists, similar to the sample in this document 2 points Look up table (or an if-else structure) of coin values exists and looks good 2 points Figure 4 exists, similar to the sample in this document 1 point Console output exists, the sum is OK according to Fig. 4 1 point Code quality (readability, understandability, good comments and structure) 2 points
-
-**TOTAL:**      **20 points** 20
-
-
-Contact
-
-If you have any further questions regarding this assignment, contact
-
-**Márton Bese NASZLADY** 
-
-via **Teams** (in private chat) or write an email to naszlady@itk.ppke.hu
-
-21
-
-**THE END**
-22
